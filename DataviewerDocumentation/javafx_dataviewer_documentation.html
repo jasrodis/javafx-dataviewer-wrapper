@@ -1,0 +1,557 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Requirements</title>
+
+</head>
+<body>
+<p><img src="images/Logo.png#center" width="300" title="JavaFX dataviewer" alt="Smaller icon" /></p>
+
+<p>Dataviewer is an open-source data visualization tool for JavaFX.</p>
+
+<p>It is based on <a href="https://plot.ly/javascript/">Plotly.js</a>, <a href="http://docs.oracle.com/javase/8/javase-clienttechnologies.htm">JavaFx</a>, <a href="http://www.eclipse.org/jetty/">Jetty</a> and Websockets.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Recent version of Java installed supporting JavaFX.</li>
+</ul>
+
+
+<h2>Installation</h2>
+
+<p>Maven installation :</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;charts&lt;/groupId&gt;
+    &lt;artifactId&gt;javafx-dataviewer&lt;/artifactId&gt;
+    &lt;version&gt;{latest.version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h2>API</h2>
+
+<ul>
+<li>DataViewer</li>
+<li>DataViewerConfiguration</li>
+<li>Trace</li>
+<li>TraceConfiguration</li>
+<li>PlotData</li>
+</ul>
+
+
+<h4>DataViewer &amp; DataViewerConfiguration</h4>
+
+<p>DataViewer is the main plotting window. It is configured by the DataViewerConfiguration.</p>
+
+<p>With DataViewer you can :</p>
+
+<ol>
+<li>Update your Plot Configuration</li>
+<li>Update your Plot Data</li>
+<li>Reset your Plot Data</li>
+</ol>
+
+
+<h5>DataViewer</h5>
+
+<pre><code>updatePlot(PlotData data);                               // Updates the plot
+updatePlotConfiguration(DataViewerConfiguration config); // Updates the dataviewer (window) configuration.
+getUniqueID(); // Get the unique ID of the dataviewer -  // navigate http://localhost:8090/view/UNIQUE_ID/
+</code></pre>
+
+<h5>DataViewerConfiguration</h5>
+
+<pre><code>setPlotTitle(String title);              // plot title
+setxAxisTitle(String title);             // x axis title
+setyAxisTitle(String title);             // x axis title
+setMarginTop(int margin);               // margin top
+setMarginBottom(int margin);            // margin bottom
+setMarginRight(int margin);             // margin right
+setMarginLeft(int margin);              // margin left
+setPadding(int padding);                // padding
+setxRange(double min, double max);     // Set the range of the x axis of the dataviewer
+setyRange(double min, double max);     // Set the range of the x axis of the dataviewer
+setxAxisType(AxisType type);             // Set the axis type of x axis (log or linear)
+setyAxisType(AxisType type);             // Set the axis type of y axis (log or linear)
+showLegend(boolean set);                // Show/hide Legend
+setLegendInsidePlot(boolean inside);    // Show legend inside plot
+</code></pre>
+
+<p>See usage example below:</p>
+
+<pre><code>// Create dataviewer
+DataViewer dataviewer = new DataViewer();
+
+// Create dataviewer configuration
+DataViewerConfiguration config = new DataViewerConfiguration();
+// Plot title
+config.setPlotTitle("Line Trace Example");
+// X axis title
+config.setxAxisTitle("X Example 1");
+// Y axis title
+config.setyAxisTitle("Y Example 1");
+
+// Update the configuration
+dataviewer.sendConfiguration(config);
+
+// Container of traces
+PlotData plotData = new PlotData(new LineTrace&lt;Float&gt;());
+
+// Plot all traces in the container.
+dataviewer.updatePlot(plotData);
+</code></pre>
+
+<p>Resetting the dataviewer example:</p>
+
+<pre><code>DataViewer dataviewer = new DataViewer();
+DataViewerConfiguration config = new DataViewerConfiguration();
+dataviewer.sendConfiguration(config);
+PlotData plotData = new PlotData();
+dataviewer.updatePlot(plotData);
+
+// Reset your Plot (removes all trace from the dataviewer)
+dataviewer.resetPlot();
+</code></pre>
+
+<h4>Traces</h4>
+
+<p>Traces are the different kind of plots that are going to be drawed in the DataViewer.
+Provided Traces:</p>
+
+<ul>
+<li>GenericTrace&lt;T></li>
+<li>LineTrace&lt;T></li>
+<li>ScatterTrace&lt;T></li>
+<li>BarTrace&lt;T></li>
+<li>TimeSeriesTrace&lt;T></li>
+<li>HistogramTrace&lt;T></li>
+<li>ContourTrace&lt;T></li>
+</ul>
+
+
+<p>More to be provided..</p>
+
+<h5>GenericTrace</h5>
+
+<p>GenericTrace is an abstract class that all traces inherit from.</p>
+
+<p>It can be used as a container when the type of the trace is not known.</p>
+
+<p>See usage example below:</p>
+
+<pre><code>Methods:
+
+// Config
+setTraceName(String traceName);                          // Updates the plot
+setConfiguration(TraceConfiguration traceConfig)         // Set the trace configuration
+setTraceColour(TraceColour colour);                      // Set trace Colour
+setTraceMode(TraceMode mode);                            // Set the trace mode (LINES, MARKERS, MARKERS_AND_LINES)
+setTraceType(TraceType traceType);                       // Set the trace Type (BAR, LINE, SCATTER, CONTOUR ...)
+setTraceVisibility(TraceVisibility visibility);          // Visibility of the trace(TRUE, FALSE, LEGENDONLY)
+
+// Data
+setxAxis(T[] xAxis);
+setyAxis(T[] xAxis);
+setzAxis(T[] zAxis);
+</code></pre>
+
+<h5>GenericTrace Example - abstract class ( should not be used like this! )</h5>
+
+<pre><code>GenericTrace&lt;Double&gt; genericTrace = new LineTrace&lt;&gt;();
+genericTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+genericTrace.setyArray(new Double[]  { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+genericTrace.setTraceColour(TraceColour.PURPLE);
+genericTrace.setTraceName("Line Trace");
+genericTrace.setTraceType(TraceType.LINE);
+genericTrace.setTraceMode(TraceMode.LINES);
+genericTrace.setTraceVisibility(TraceVisibility.TRUE);
+</code></pre>
+
+<h5>LineTrace</h5>
+
+<p><img src="images/Line.png#center" width="600" title="LineTrace example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>LineTrace&lt;Double&gt; lineTrace = new LineTrace&lt;&gt;();
+lineTrace.setTraceName("MyLineTrace");
+lineTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+lineTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+lineTrace.setTraceColour(TraceColour.PURPLE);
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>LineTrace&lt;Double&gt; lineTrace = new LineTrace&lt;&gt;();
+lineTrace.setTraceName("MyLineTrace");
+
+lineTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+lineTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+
+TraceConfiguration lineConfig = new TraceConfiguration();
+lineConfig.setTraceColour(TraceColour.RED);
+lineTrace.setConfiguration(lineConfig);
+</code></pre>
+
+<h5>BarTrace</h5>
+
+<p><img src="images/Bar.png#center" width="600" title="BarTrace example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>BarTrace&lt;Object&gt; barTrace = new BarTrace&lt;&gt;();
+barTrace.setTraceName("MyBarTrace");
+barTrace.setxArray(new String[] { "one", "two", "three", "four", "five", "six" });
+barTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+barTrace.setTraceColour(TraceColour.PURPLE);
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>BarTrace&lt;Object&gt; barTrace = new BarTrace&lt;&gt;();
+barTrace.setTraceName("MyBarTrace");
+
+barTrace.setxArray(new String[] { "one", "two", "three", "four", "five", "six" });
+barTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+
+TraceConfiguration barConfig = new TraceConfiguration();
+barConfig.setTraceColour(TraceColour.RED);
+barTrace.setConfiguration(barConfig);
+</code></pre>
+
+<h5>ScatterTrace</h5>
+
+<p><img src="images/Scatter.png#center" width="600" title="ScatterTrace example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>Scatter&lt;Float&gt; scatterTrace = new ScatterTrace&lt;&gt;();
+scatterTrace.setTraceName("MyScatterTrace");
+scatterTrace.setxArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+scatterTrace.setyArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+scatterTrace.setTraceColour(TraceColour.PURPLE);
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>ScatterTrace&lt;Double&gt; scatterTrace = new ScatterTrace&lt;&gt;();
+scatterTrace.setTraceName("MyScatterTrace");
+
+scatterTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+scatterTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+
+TraceConfiguration scatterConfig = new TraceConfiguration();
+scatterConfig.setTraceColour(TraceColour.RED);
+scatterTrace.setConfiguration(scatterConfig);
+</code></pre>
+
+<h5>TimeSeriesTrace</h5>
+
+<p><img src="images/TimeSeries.png#center" width="600" title="ScatterTrace example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>TimeSeries&lt;Object&gt; timeSeriesTrace = new TimeSeriesTrace&lt;&gt;();
+timeSeriesTrace.setTraceName("MyTimeSeriesTrace");
+
+timeSeriesTrace.setxArray(new String[] { "2013-10-04 22:23:00", "2013-10-05 22:23:01", "2013-10-06 22:23:02", "2013-10-07   22:23:03", "2013-10-08 22:23:04", "2013-10-09 22:23:05", "2013-10-10 22:23:06" });
+timeSeriesTrace.setyArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+
+timeSeriesTrace.setTraceColour(TraceColour.PURPLE);
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>TimeSeriesTrace&lt;Double&gt; timeSeriesTrace = new TimeSeriesTrace&lt;&gt;();
+timeSeriesTrace.setTraceName("MyTimeSeriesTrace");
+
+timeSeriesTrace.setxArray(new String[] { "2013-10-04 22:23:00", "2013-10-05 22:23:01", "2013-10-06 22:23:02", "2013-10-07   22:23:03", "2013-10-08 22:23:04", "2013-10-09 22:23:05", "2013-10-10 22:23:06" });
+timeSeriesTrace.setyArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
+
+TraceConfiguration timeSeriesConfig = new TraceConfiguration();
+timeSeriesTrace.setTraceColour(TraceColour.RED);
+timeSeriesTrace.setConfiguration(timeSeriesConfig);
+</code></pre>
+
+<h5>CountourTrace</h5>
+
+<p><img src="images/Contour.png#center" width="600" title="Contour example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>ContourTrace&lt;Double&gt; contourTrace = new ContourTrace&lt;&gt;();
+
+contourTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+contourTrace.setyArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+contourTrace.setzArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+
+contourTrace.setTraceName("ContourTrace");
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>ContourTrace&lt;Double&gt; contourTrace = new ContourTrace&lt;&gt;();
+
+contourTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+contourTrace.setyArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+contourTrace.setzArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+
+TraceConfiguration contourConfig = new TraceConfiguration();
+contourConfig.setTraceName("ContourTrace");
+
+contourTrace.setConfiguration(contourConfig);
+</code></pre>
+
+<h5>Histogram</h5>
+
+<p><img src="images/Histogram.png#center" width="600" title="HistogramTrace example" alt="Smaller icon" /></p>
+
+<p>Example:</p>
+
+<pre><code>HistogramTrace&lt;Double&gt; histogramTrace = new HistogramTrace&lt;&gt;();
+histogramTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
+histogramTrace.setTraceName("MyHistogramTrace");
+histogramTrace.setTraceColour(TraceColour.BLUE);
+</code></pre>
+
+<p>Example with configuration object:</p>
+
+<pre><code>HistogramTrace&lt;Double&gt; histogramTrace = new HistogramTrace&lt;&gt;();
+histogramTrace.setxArray(new Double[] { 0.0, 1.0, 200.0, 3.0, 4000.0, 5.0 });
+
+TraceConfiguration histogramConfig = new TraceConfiguration();
+histogramConfig.setTraceName("HistogramTrace");
+histogramConfig.setTraceColour(TraceColour.RED);
+
+histogramTrace.setConfiguration(histogramConfig);
+</code></pre>
+
+<h2>Features</h2>
+
+<h3>plotly.js features</h3>
+
+<p>You can find plotly features here:
+<a href="http://help.plot.ly/getting-to-know-the-plotly-modebar/">http://help.plot.ly/getting-to-know-the-plotly-modebar/</a></p>
+
+<h3>Dataviewer features</h3>
+
+<p>Additional Features have been added so far :</p>
+
+<p><img src="images/Topmenu.png#center" width="300" title="HistogramTrace example" alt="Smaller icon" /></p>
+
+<ul>
+<li>Change in logarithmic scales.</li>
+<li>Data visualization in table.</li>
+<li>Show/Move legend.</li>
+<li>Export data to CSV.</li>
+<li>Change trace type.</li>
+<li>Date &amp; time of the latest plot udpate</li>
+</ul>
+
+
+<h2>Architecture Overview</h2>
+
+<p>DataViewer uses the embedded Jetty Server in order to create Websocket Endpoints and Serve Static Html &amp; Javascript pages.
+These pages will be loaded in the JavaFX WebView that the library is using.</p>
+
+<p><strong>Overview of the architecture:</strong></p>
+
+<p><img src="images/Architecture.png" width="800" title="Local Catalog Configuration" alt="Smaller icon" /></p>
+
+<h4>Sequence diagram</h4>
+
+<p><img src="images/Architecture2.png" width="800" title="Local Catalog Configuration" alt="Smaller icon" /></p>
+
+<h2>JavaFX Dataviewer Demo Project</h2>
+
+<p>Extensive usage of the dataviewer with examples can be found : <a href="http://github.com/jasrodis/dataviewerDemo">http://github.com/jasrodis/dataviewerDemo</a></p>
+
+<h2>Licence</h2>
+
+<pre><code>The MIT License (MIT)
+
+  Author: Iason Rodis (jasrodis@gmail.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation  files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,  modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the   Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the    Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE    WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR   COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+
+<!-- Highlight syntax for Mou.app, insert at the bottom of the markdown document  -->
+
+
+
+
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+
+
+<p><link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css"></p>
+
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
+</body>
+</html>
