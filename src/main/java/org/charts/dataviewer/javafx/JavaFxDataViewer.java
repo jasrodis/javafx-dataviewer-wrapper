@@ -62,8 +62,9 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 
 	@Override
 	public void updatePlot(PlotData plotData) {
-		dataviewer.updatePlot(plotData);
+		this.plotData = plotData;
 		topMenuBar.udpateTopMenu(this.latestConfig, this.plotData);
+		dataviewer.updatePlot(plotData);
 	}
 
 	@Override
@@ -73,8 +74,9 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 
 	@Override
 	public void updateConfiguration(DataViewerConfiguration config) {
-		dataviewer.updateConfiguration(config);
+		this.latestConfig = config;
 		topMenuBar.udpateTopMenu(this.latestConfig, this.plotData);
+		dataviewer.updateConfiguration(config);
 	}
 
 }

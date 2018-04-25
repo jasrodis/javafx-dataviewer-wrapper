@@ -47,7 +47,7 @@ import javafx.stage.Stage;
 
 public class TopMenuBar extends HBox {
 
-	private final static Logger logger = LoggerFactory.getLogger(TopMenuBar.class);
+	private static final Logger log = LoggerFactory.getLogger(TopMenuBar.class);
 
 	// Dataviewer
 	private DataViewer dataviewer;
@@ -162,7 +162,7 @@ public class TopMenuBar extends HBox {
 			br.write(sb.toString());
 			br.close();
 		} catch (IOException e) {
-			logger.error("FileWriterException ", e);
+			log.error("FileWriterException ", e);
 		}
 		return;
 	}
@@ -213,6 +213,12 @@ public class TopMenuBar extends HBox {
 	private void changeToLogScale() {
 		// Y scale
 		if (numberOfTimesClickedCtr == 0) {
+			if (latestConfig == null)
+				log.info("It is null ! ");
+
+			if (AxisType.LOG == null)
+				log.info("It is log null");
+
 			latestConfig.setyAxisType(AxisType.LOG);
 			numberOfTimesClickedCtr++;
 		}
