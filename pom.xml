@@ -1,14 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.charts</groupId>
-  <artifactId>javafx-dataviewer-wrapper</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>javafx-dataviewer-wrapper</name>
-  	<description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>org.charts</groupId>
+	<artifactId>javafx-dataviewer-wrapper</artifactId>
+	<version>1.0.0</version>
+	<name>javafx-dataviewer-wrapper</name>
+	
+	<description>
     	A JavaFX based data visualization library.    
     </description>
-  	
-  	<inceptionYear>2017</inceptionYear>
+
+	<inceptionYear>2018</inceptionYear>
 
 	<properties>
 		<slf4j.version>1.7.12</slf4j.version>
@@ -27,7 +30,6 @@
 
 		<!-- Plugins -->
 		<plugins>
-
 			<!-- Maven compiler plugin -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -37,42 +39,10 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>${project.groupId}.dataviewer.app.MainApp</mainClass>
-						</manifest>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-				</configuration>
-			</plugin>
-
-
-			<!-- Maven java execution plugin -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.4.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<mainClass>${project.groupId}.dataviewer.app.MainApp</mainClass>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-  
-  	<!-- Dependencies -->
+
+	<!-- Dependencies -->
 	<dependencies>
 
 		<!-- Logging Logback -->
@@ -129,7 +99,7 @@
 			<artifactId>guava</artifactId>
 			<version>19.0</version>
 		</dependency>
-		
+
 		<!-- dataviewer -->
 		<dependency>
 			<groupId>org.charts</groupId>

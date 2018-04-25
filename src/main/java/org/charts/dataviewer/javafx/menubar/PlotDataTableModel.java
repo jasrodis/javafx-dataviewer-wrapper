@@ -1,43 +1,44 @@
 package org.charts.dataviewer.javafx.menubar;
 
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 public class PlotDataTableModel {
 
-	private final SimpleDoubleProperty xdata;
-	private final SimpleDoubleProperty ydata;
-	private final SimpleDoubleProperty zdata;
+	private final ObjectProperty<Object> xdata;
+	private final ObjectProperty<Object> ydata;
+	private final ObjectProperty<Object> zdata;
 
-	public PlotDataTableModel(double xData, double yData, double zData) {
-		this.xdata = new SimpleDoubleProperty();
-		this.ydata = new SimpleDoubleProperty();
-		this.zdata = new SimpleDoubleProperty();
+	public PlotDataTableModel(Object xData, Object yData, Object zData) {
+		this.xdata = new SimpleObjectProperty<>();
+		this.ydata = new SimpleObjectProperty<>();
+		this.zdata = new SimpleObjectProperty<>();
 		setXdata(xData);
 		setYdata(yData);
 		setZdata(zData);
 	}
 
-	public Double getXdata() {
+	public Object getXdata() {
 		return xdata.get();
 	}
 
-	public void setXdata(Double xData) {
+	public void setXdata(Object xData) {
 		this.xdata.set(xData);
 	}
 
-	public Double getYdata() {
+	public Object getYdata() {
 		return ydata.get();
 	}
 
-	public void setYdata(Double yData) {
+	public void setYdata(Object yData) {
 		this.ydata.set(yData);
 	}
 
-	public Double getZdata() {
+	public Object getZdata() {
 		return zdata.get();
 	}
 
-	public void setZdata(Double zData) {
+	public void setZdata(Object zData) {
 		this.zdata.set(zData);
 	}
 

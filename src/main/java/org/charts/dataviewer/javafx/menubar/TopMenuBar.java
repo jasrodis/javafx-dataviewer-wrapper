@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.charts.dataviewer.DataViewer;
+import org.charts.dataviewer.api.config.DataViewerConfiguration;
+import org.charts.dataviewer.api.data.PlotData;
+import org.charts.dataviewer.api.trace.GenericTrace;
+import org.charts.dataviewer.javafx.utils.IconTextCellClass;
+import org.charts.dataviewer.javafx.utils.ImageButton;
+import org.charts.dataviewer.javafx.utils.ImageToggleButton;
+import org.charts.dataviewer.javafx.utils.StaticVariables;
+import org.charts.dataviewer.utils.AxisType;
+import org.charts.dataviewer.utils.TraceMode;
+import org.charts.dataviewer.utils.TraceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import charts.dataviewer.DataViewer;
-import charts.dataviewer.api.config.DataViewerConfiguration;
-import charts.dataviewer.api.data.PlotData;
-import charts.dataviewer.api.trace.GenericTrace;
-import charts.dataviewer.utils.AxisType;
-import charts.dataviewer.utils.IconTextCellClass;
-import charts.dataviewer.utils.ImageButton;
-import charts.dataviewer.utils.ImageToggleButton;
-import charts.dataviewer.utils.StaticVariables;
-import charts.dataviewer.utils.TraceMode;
-import charts.dataviewer.utils.TraceType;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -47,7 +47,7 @@ import javafx.stage.Stage;
 
 public class TopMenuBar extends HBox {
 
-	private final static Logger logger = LoggerFactory.getLogger(TopMenu.class.getName());
+	private final static Logger logger = LoggerFactory.getLogger(TopMenuBar.class);
 
 	// Dataviewer
 	private DataViewer dataviewer;
@@ -58,7 +58,7 @@ public class TopMenuBar extends HBox {
 	private Label dateLabel = new Label();
 
 	// Table
-	private TableView<PlotDataTableModel> table = new TableView<PlotDataTableModel>();
+	private TableView<PlotDataTableModel> table = new TableView<>();
 
 	// Counters
 	private int openedWindowsCtr = 0;
@@ -83,15 +83,16 @@ public class TopMenuBar extends HBox {
 
 		// ComboBoxes
 		traceNameComboBox = new ComboBox<>();
-		traceNameComboBox.setOnAction((event) -> Platform.runLater(() -> updateTableValues(traceNameComboBox)));
+		traceNameComboBox.setOnAction(event -> Platform.runLater(() -> updateTableValues(traceNameComboBox)));
 
 		ComboBox<String> traceTypeComboBox = new ComboBox<>();
-		traceTypeComboBox.getItems().addAll(StaticVariables.LINE, StaticVariables.BAR, StaticVariables.SCATTER, StaticVariables.LINEANDMARKS);
+		traceTypeComboBox.getItems().addAll(StaticVariables.LINE, StaticVariables.BAR, StaticVariables.SCATTER,
+				StaticVariables.LINEANDMARKS);
 		traceTypeComboBox.setStyle("-fx-background-color: transparent;");
 		traceTypeComboBox.setMaxWidth(Double.MIN_VALUE);
 		traceTypeComboBox.setButtonCell(new IconTextCellClass());
 		traceTypeComboBox.setTooltip(new Tooltip(StaticVariables.TRACETYPE_TP));
-		traceTypeComboBox.setOnAction((event) -> Platform.runLater(() -> updateTraceType(traceTypeComboBox)));
+		traceTypeComboBox.setOnAction(event -> Platform.runLater(() -> updateTraceType(traceTypeComboBox)));
 		traceTypeComboBox.getSelectionModel().select(0);
 		traceTypeComboBox.setCellFactory(p -> new IconTextCellClass());
 
@@ -102,25 +103,26 @@ public class TopMenuBar extends HBox {
 
 		// Buttons
 		ImageButton logarithmicButton = new ImageButton(StaticVariables.LOG_ICON);
-		logarithmicButton.setOnAction((event) -> changeToLogScale(event));
+		logarithmicButton.setOnAction(event -> changeToLogScale());
 		logarithmicButton.setTooltip(new Tooltip(StaticVariables.LOG_TP));
 
 		ImageButton tableButton = new ImageButton(StaticVariables.TABLE_ICON);
-		tableButton.setOnAction((event) -> Platform.runLater(() -> createAndShowTableWindow(traceNameComboBox)));
+		tableButton.setOnAction(event -> Platform.runLater(() -> createAndShowTableWindow(traceNameComboBox)));
 		tableButton.setTooltip(new Tooltip(StaticVariables.TABLE_TP));
 
 		ImageToggleButton legendButton = new ImageToggleButton(StaticVariables.LEGEND_ICON);
-		legendButton.setOnAction((event) -> showLegendButtonClicked(event));
+		legendButton.setOnAction(this::showLegendButtonClicked);
 		legendButton.setTooltip(new Tooltip(StaticVariables.LEGEND_TP));
 
 		ImageButton exportButton = new ImageButton(StaticVariables.EXPORT_ICON);
-		exportButton.setOnAction((event) -> Platform.runLater(() -> exportToCsv()));
+		exportButton.setOnAction(event -> Platform.runLater(this::exportToCsv));
 		exportButton.setTooltip(new Tooltip(StaticVariables.EXPORT_TP));
 
 		dateLabel.setText(dateFormat.format(new Date()));
 
 		// Add components.
-		getChildren().addAll(logarithmicButton, tableButton, legendButton, exportButton, traceTypeComboBox, middleRegion, dateLabel);
+		getChildren().addAll(logarithmicButton, tableButton, legendButton, exportButton, traceTypeComboBox,
+				middleRegion, dateLabel);
 	}
 
 	private void exportToCsv() {
@@ -129,7 +131,7 @@ public class TopMenuBar extends HBox {
 			fileChooser.setTitle("Export to .csv");
 			fileChooser.getExtensionFilters().add(new ExtensionFilter("CSV files", "*.csv"));
 			File file = fileChooser.showSaveDialog(new Stage());
-			if (file == null){
+			if (file == null) {
 				return;
 			}
 
@@ -196,7 +198,6 @@ public class TopMenuBar extends HBox {
 		}
 		dataviewer.updatePlot(plotData);
 	}
-	
 
 	private void showLegendButtonClicked(ActionEvent event) {
 		ImageToggleButton source = (ImageToggleButton) event.getSource();
@@ -208,7 +209,7 @@ public class TopMenuBar extends HBox {
 		dataviewer.updateConfiguration(latestConfig);
 	}
 
-	private void changeToLogScale(ActionEvent event) {
+	private void changeToLogScale() {
 		// Y scale
 		if (numberOfTimesClickedCtr == 0) {
 			latestConfig.setyAxisType(AxisType.LOG);
@@ -305,12 +306,12 @@ public class TopMenuBar extends HBox {
 	public void initTable() {
 		table.setItems(FXCollections.observableArrayList());
 		table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		TableColumn<PlotDataTableModel, Object> xDataCol = new TableColumn<PlotDataTableModel, Object>("X");
-		xDataCol.setCellValueFactory(new PropertyValueFactory<PlotDataTableModel, Object>("xdata"));
-		TableColumn<PlotDataTableModel, Object> yDataCol = new TableColumn<PlotDataTableModel, Object>("Y");
-		yDataCol.setCellValueFactory(new PropertyValueFactory<PlotDataTableModel, Object>("ydata"));
-		TableColumn<PlotDataTableModel, Object> zDataCol = new TableColumn<PlotDataTableModel, Object>("Z");
-		zDataCol.setCellValueFactory(new PropertyValueFactory<PlotDataTableModel, Object>("zdata"));
+		TableColumn<PlotDataTableModel, Object> xDataCol = new TableColumn<>("X");
+		xDataCol.setCellValueFactory(new PropertyValueFactory<>("xdata"));
+		TableColumn<PlotDataTableModel, Object> yDataCol = new TableColumn<>("Y");
+		yDataCol.setCellValueFactory(new PropertyValueFactory<>("ydata"));
+		TableColumn<PlotDataTableModel, Object> zDataCol = new TableColumn<>("Z");
+		zDataCol.setCellValueFactory(new PropertyValueFactory<>("zdata"));
 		table.getColumns().add(xDataCol);
 		table.getColumns().add(yDataCol);
 		table.getColumns().add(zDataCol);
@@ -323,7 +324,7 @@ public class TopMenuBar extends HBox {
 	public void udpateTopMenu(DataViewerConfiguration latestConfig, PlotData plotData) {
 		this.latestConfig = latestConfig;
 		this.plotData = plotData;
-		Platform.runLater(() -> updateDate());
+		Platform.runLater(this::updateDate);
 		Platform.runLater(() -> updateTableValues(traceNameComboBox));
 	}
 
