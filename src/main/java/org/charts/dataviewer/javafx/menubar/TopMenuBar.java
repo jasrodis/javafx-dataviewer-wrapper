@@ -132,6 +132,7 @@ public class TopMenuBar extends HBox {
 			fileChooser.getExtensionFilters().add(new ExtensionFilter("CSV files", "*.csv"));
 			File file = fileChooser.showSaveDialog(new Stage());
 			if (file == null) {
+				// TODO: throw exception
 				return;
 			}
 

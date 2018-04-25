@@ -18,10 +18,6 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 
 	private DataViewer dataviewer = new DataViewer();
 
-	private WebEngine webEngine;
-
-	private WebView webView;
-
 	private boolean enableFireBug = false;
 
 	private DataViewerConfiguration latestConfig;
@@ -34,9 +30,9 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 	}
 
 	private void createView() {
-		webView = new WebView();
+		WebView webView = new WebView();
 		webView.setContextMenuEnabled(false);
-		webEngine = webView.getEngine();
+		WebEngine webEngine = webView.getEngine();
 		webEngine.documentProperty().addListener(cl -> {
 			log.debug("WebView loaded dataviewer with id : [{}]", dataviewer.getUniqueID());
 			if (enableFireBug)
@@ -48,7 +44,9 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 
 		setStyle("-fx-background-color: white;");
 		setCenter(webView);
-		setTop(topMenuBar = new TopMenuBar(plotData, latestConfig, dataviewer));
+
+		topMenuBar = new TopMenuBar(plotData, latestConfig, dataviewer);
+		setTop(topMenuBar);
 	}
 
 	/**
