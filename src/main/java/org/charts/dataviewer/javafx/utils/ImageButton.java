@@ -1,10 +1,8 @@
 package org.charts.dataviewer.javafx.utils;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class ImageButton extends Button {
 
@@ -14,19 +12,7 @@ public class ImageButton extends Button {
 	public ImageButton(String imageurl) {
 		setGraphic(new ImageView(new Image(getClass().getResourceAsStream(imageurl))));
 		setStyle(STYLE_NORMAL);
-
-		setOnMousePressed(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				setStyle(STYLE_PRESSED);
-			}
-		});
-
-		setOnMouseReleased(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				setStyle(STYLE_NORMAL);
-			}
-		});
+		setOnMousePressed(evt -> setStyle(STYLE_PRESSED));
+		setOnMouseReleased(evt -> setStyle(STYLE_NORMAL));
 	}
 }
