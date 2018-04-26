@@ -12,15 +12,16 @@ It is based on [Plotly.js](https://plot.ly/javascript/), [JavaFx](http://docs.or
 
 *   Recent version of Java installed supporting JavaFX.
 
-## Installation
+## To install the library to your project
 
-Maven installation :
-
+Maven JitPack installation :
+    
     <dependency>
-        <groupId>charts</groupId>
-        <artifactId>javafx-dataviewer</artifactId>
-        <version>{latest.version}</version>
-    </dependency>
+		<groupId>com.github.jasrodis</groupId>
+		<artifactId>javafx-dataviewer-wrapper</artifactId>
+		<version>-SNAPSHOT</version>
+	</dependency>
+
 
 ## API
 
