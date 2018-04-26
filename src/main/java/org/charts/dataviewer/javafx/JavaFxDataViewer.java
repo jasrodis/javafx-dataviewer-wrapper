@@ -79,4 +79,14 @@ public class JavaFxDataViewer extends BorderPane implements Viewer {
 		dataviewer.updateConfiguration(config);
 	}
 
+	@Override
+	public String getUniqueID() {
+		return dataviewer.getUniqueID();
+	}
+
+	@Override
+	public String getUrl() {
+		return dataviewer.getUrl();
+	}
+
 }
