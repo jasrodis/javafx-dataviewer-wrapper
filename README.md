@@ -1,5 +1,6 @@
 ![Smaller icon](DataviewerDocumentation/images/logo.png?raw=true "JavaFX dataviewer") 
 
+
 [![Build Status](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper.svg?branch=master)](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper)
 
 TODO: NEED UPDATE !!!
