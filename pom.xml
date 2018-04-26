@@ -19,7 +19,7 @@
 	</properties>
 
 	<build>
-		<finalName>${groupId}.${project.artifactId}</finalName>
+		<finalName>${project.groupId}.${project.artifactId}</finalName>
 
 		<!-- Resources -->
 		<resources>
