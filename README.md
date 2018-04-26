@@ -26,7 +26,7 @@ Maven JitPack installation :
 
 ## API
 
-*   DataViewer
+*   JavaFxDataViewer (extends DataViewer, JavaFX Wrapper)
 *   DataViewerConfiguration
 *   Trace
 *   TraceConfiguration
@@ -41,6 +41,7 @@ With DataViewer you can :
 1.  Update your Plot Configuration
 2.  Update your Plot Data
 3.  Reset your Plot Data
+4.  Get the exposed URL
 
 ##### DataViewer
 
@@ -90,7 +91,7 @@ See usage example below:
 
 Resetting the dataviewer example:
 
-    DataViewer dataviewer = new DataViewer();
+    JavaFxDataViewer dataviewer = new JavaFxDataViewer();
     DataViewerConfiguration config = new DataViewerConfiguration();
     dataviewer.sendConfiguration(config);
     PlotData plotData = new PlotData();
@@ -300,7 +301,7 @@ Example with configuration object:
 
 You can find plotly features here: [http://help.plot.ly/getting-to-know-the-plotly-modebar/](http://help.plot.ly/getting-to-know-the-plotly-modebar/)
 
-### Dataviewer features
+### JavaFxDataViewer features
 
 Additional Features have been added so far :
 
