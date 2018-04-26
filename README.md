@@ -9,6 +9,11 @@ It is a JavaFX wrapper of the Dataviewer project : https://github.com/jasrodis/d
 
 It is based on [Plotly.js](https://plot.ly/javascript/), [JavaFx](http://docs.oracle.com/javase/8/javase-clienttechnologies.htm), [Jetty](http://www.eclipse.org/jetty/) and Websockets.
 
+
+## JavaFX Dataviewer Examples
+
+Extensive usage of the JavaFxDataViewer with examples can be found : [http://github.com/jasrodis/javafx-dataviewer-example](http://github.com/jasrodis/javafx-dataviewer-example)
+
 ## Requirements
 
 *   Recent version of Java installed supporting JavaFX.
@@ -328,6 +333,3 @@ DataViewer uses the embedded Jetty Server in order to create Websocket Endpoints
 
 ![Smaller icon](DataviewerDocumentation/images/Architecture2.png "Local Catalog Configuration")
 
-## JavaFX Dataviewer Demo Project
-
-Extensive usage of the dataviewer with examples can be found : [http://github.com/jasrodis/javafx-dataviewer-example](http://github.com/jasrodis/javafx-dataviewer-example)
