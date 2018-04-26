@@ -24,6 +24,8 @@ Maven JitPack installation :
 	</dependency>
 
 
+#Documentation
+
 ## API
 
 *   JavaFxDataViewer (extends DataViewer, JavaFX Wrapper)
@@ -328,4 +330,4 @@ DataViewer uses the embedded Jetty Server in order to create Websocket Endpoints
 
 ## JavaFX Dataviewer Demo Project
 
-Extensive usage of the dataviewer with examples can be found : [http://github.com/jasrodis/dataviewer-demo](http://github.com/jasrodis/dataviewer-demo)
+Extensive usage of the dataviewer with examples can be found : [http://github.com/jasrodis/dataviewer-demo](http://github.com/jasrodis/javafx-dataviewer-example)
