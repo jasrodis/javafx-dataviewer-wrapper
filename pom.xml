@@ -10,6 +10,14 @@
 	<description>
     	A JavaFX based data visualization library.    
     </description>
+    
+    	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+    
 
 	<inceptionYear>2018</inceptionYear>
 
@@ -101,10 +109,17 @@
 		</dependency>
 
 		<!-- dataviewer -->
+		<!-- 
 		<dependency>
 			<groupId>org.charts</groupId>
 			<artifactId>dataviewer</artifactId>
 			<version>1.0.0</version>
+		</dependency>
+	 	-->		
+	 	<dependency>
+			<groupId>com.github.jasrodis</groupId>
+			<artifactId>dataviewer</artifactId>
+			<version>-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
