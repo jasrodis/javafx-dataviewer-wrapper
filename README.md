@@ -1,6 +1,8 @@
 ![Smaller icon](DataviewerDocumentation/images/logo.png?raw=true "JavaFX dataviewer") 
 
-[![Build Status](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper.svg?branch=master)](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper) [![](https://jitpack.io/v/jasrodis/javafx-dataviewer-wrapper.svg)](https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper)
+[![Build Status](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper.svg?branch=master)](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper) [![](https://jitpack.io/v/jasrodis/javafx-dataviewer-wrapper.svg)](https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 
 
