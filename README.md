@@ -27,9 +27,9 @@ Maven JitPack installation :
     
 ```xml    
 <dependency>
-	<groupId>com.github.jasrodis</groupId>
-	<artifactId>javafx-dataviewer-wrapper</artifactId>
-	<version>-SNAPSHOT</version>
+   <groupId>com.github.jasrodis</groupId>
+   <artifactId>javafx-dataviewer-wrapper</artifactId>
+   <version>-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -37,11 +37,11 @@ Maven JitPack installation :
 
 ## API
 
-*   JavaFxDataViewer (extends DataViewer, JavaFX Wrapper)
-*   DataViewerConfiguration
-*   Trace
-*   TraceConfiguration
-*   PlotData
+*   `JavaFxDataViewer` (extends DataViewer, JavaFX Wrapper)
+*   `DataViewerConfiguration`
+*   `Trace`
+*   `TraceConfiguration`
+*   `PlotData`
 
 #### DataViewer & DataViewerConfiguration
 
@@ -55,13 +55,13 @@ With DataViewer you can :
 4.  Get the exposed URL
 
 ##### DataViewer
-
+```java
     updatePlot(PlotData data);                               // Updates the plot
     updatePlotConfiguration(DataViewerConfiguration config); // Updates the dataviewer (window) configuration.
     getUniqueID(); // Get the unique ID of the dataviewer -  // navigate http://localhost:8090/view/UNIQUE_ID/
-
+```
 ##### DataViewerConfiguration
-
+```java
     setPlotTitle(String title);              // plot title
     setxAxisTitle(String title);             // x axis title
     setyAxisTitle(String title);             // x axis title
@@ -76,9 +76,9 @@ With DataViewer you can :
     setyAxisType(AxisType type);             // Set the axis type of y axis (log or linear)
     showLegend(boolean set);                // Show/hide Legend
     setLegendInsidePlot(boolean inside);    // Show legend inside plot
-
+```
 See usage example below:
-
+```java
     // Create dataviewer
     DataViewer dataviewer = new DataViewer();
 
@@ -99,9 +99,9 @@ See usage example below:
 
     // Plot all traces in the container.
     dataviewer.updatePlot(plotData);
-
+```
 Resetting the dataviewer example:
-
+```java
     JavaFxDataViewer dataviewer = new JavaFxDataViewer();
     DataViewerConfiguration config = new DataViewerConfiguration();
     dataviewer.sendConfiguration(config);
@@ -110,31 +110,30 @@ Resetting the dataviewer example:
 
     // Reset your Plot (removes all trace from the dataviewer)
     dataviewer.resetPlot();
-
+```
 #### Traces
 
 Traces are the different kind of plots that are going to be drawed in the DataViewer. Provided Traces:
 
-*   GenericTrace<T>
-*   LineTrace<T>
-*   ScatterTrace<T>
-*   BarTrace<T>
-*   TimeSeriesTrace<T>
-*   HistogramTrace<T>
-*   ContourTrace<T>
+*   `GenericTrace<T>`
+*   `LineTrace<T>`
+*   `ScatterTrace<T>`
+*   `BarTrace<T>`
+*   `TimeSeriesTrace<T>`
+*   `HistogramTrace<T>`
+*   `ContourTrace<T>`
 
 More to be provided..
 
 ##### GenericTrace
 
-GenericTrace is an abstract class that all traces inherit from.
+`GenericTrace` is an abstract class that all traces inherit from.
 
 It can be used as a container when the type of the trace is not known.
 
 See usage example below:
-
+```java
     Methods:
-
     // Config
     setTraceName(String traceName);                          // Updates the plot
     setConfiguration(TraceConfiguration traceConfig)         // Set the trace configuration
@@ -147,9 +146,10 @@ See usage example below:
     setxAxis(T[] xAxis);
     setyAxis(T[] xAxis);
     setzAxis(T[] zAxis);
+```
 
 ##### GenericTrace Example - abstract class ( should not be used like this! )
-
+```java
     GenericTrace<Double> genericTrace = new LineTrace<>();
     genericTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     genericTrace.setyArray(new Double[]  { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
@@ -158,21 +158,21 @@ See usage example below:
     genericTrace.setTraceType(TraceType.LINE);
     genericTrace.setTraceMode(TraceMode.LINES);
     genericTrace.setTraceVisibility(TraceVisibility.TRUE);
-
+```
 ##### LineTrace
 
 ![Smaller icon](DataviewerDocumentation/images/Line.png?raw=true "LineTrace example")
 
 Example:
-
+```java
     LineTrace<Double> lineTrace = new LineTrace<>();
     lineTrace.setTraceName("MyLineTrace");
     lineTrace.setxArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     lineTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     lineTrace.setTraceColour(TraceColour.PURPLE);
-
+```
 Example with configuration object:
-
+```java
     LineTrace<Double> lineTrace = new LineTrace<>();
     lineTrace.setTraceName("MyLineTrace");
 
@@ -182,21 +182,21 @@ Example with configuration object:
     TraceConfiguration lineConfig = new TraceConfiguration();
     lineConfig.setTraceColour(TraceColour.RED);
     lineTrace.setConfiguration(lineConfig);
-
+```
 ##### BarTrace
 
 ![Smaller icon](DataviewerDocumentation/images/Bar.png?raw=true "BarTrace example")
 
 Example:
-
+```java
     BarTrace<Object> barTrace = new BarTrace<>();
     barTrace.setTraceName("MyBarTrace");
     barTrace.setxArray(new String[] { "one", "two", "three", "four", "five", "six" });
     barTrace.setyArray(new Double[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     barTrace.setTraceColour(TraceColour.PURPLE);
-
+```
 Example with configuration object:
-
+```java
     BarTrace<Object> barTrace = new BarTrace<>();
     barTrace.setTraceName("MyBarTrace");
 
@@ -206,21 +206,21 @@ Example with configuration object:
     TraceConfiguration barConfig = new TraceConfiguration();
     barConfig.setTraceColour(TraceColour.RED);
     barTrace.setConfiguration(barConfig);
-
+```
 ##### ScatterTrace
 
 ![Smaller icon](DataviewerDocumentation/images/Scatter.png?raw=true "ScatterTrace example")
 
 Example:
-
+```java
     Scatter<Float> scatterTrace = new ScatterTrace<>();
     scatterTrace.setTraceName("MyScatterTrace");
     scatterTrace.setxArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     scatterTrace.setyArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
     scatterTrace.setTraceColour(TraceColour.PURPLE);
-
+```
 Example with configuration object:
-
+```java
     ScatterTrace<Double> scatterTrace = new ScatterTrace<>();
     scatterTrace.setTraceName("MyScatterTrace");
 
@@ -230,13 +230,13 @@ Example with configuration object:
     TraceConfiguration scatterConfig = new TraceConfiguration();
     scatterConfig.setTraceColour(TraceColour.RED);
     scatterTrace.setConfiguration(scatterConfig);
-
+```
 ##### TimeSeriesTrace
 
 ![Smaller icon](DataviewerDocumentation/images/TimeSeries.png?raw=true "ScatterTrace example")
 
 Example:
-
+```java
     TimeSeries<Object> timeSeriesTrace = new TimeSeriesTrace<>();
     timeSeriesTrace.setTraceName("MyTimeSeriesTrace");
 
@@ -244,9 +244,9 @@ Example:
     timeSeriesTrace.setyArray(new Float[] { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 });
 
     timeSeriesTrace.setTraceColour(TraceColour.PURPLE);
-
+```
 Example with configuration object:
-
+```java
     TimeSeriesTrace<Double> timeSeriesTrace = new TimeSeriesTrace<>();
     timeSeriesTrace.setTraceName("MyTimeSeriesTrace");
 
@@ -256,13 +256,13 @@ Example with configuration object:
     TraceConfiguration timeSeriesConfig = new TraceConfiguration();
     timeSeriesTrace.setTraceColour(TraceColour.RED);
     timeSeriesTrace.setConfiguration(timeSeriesConfig);
-
+```
 ##### CountourTrace
 
 ![Smaller icon](DataviewerDocumentation/images/Contour.png?raw=true "Contour example")
 
 Example:
-
+```java
     ContourTrace<Double> contourTrace = new ContourTrace<>();
 
     contourTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
@@ -270,9 +270,9 @@ Example:
     contourTrace.setzArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
 
     contourTrace.setTraceName("ContourTrace");
-
+```
 Example with configuration object:
-
+```java
     ContourTrace<Double> contourTrace = new ContourTrace<>();
 
     contourTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
@@ -283,20 +283,20 @@ Example with configuration object:
     contourConfig.setTraceName("ContourTrace");
 
     contourTrace.setConfiguration(contourConfig);
-
+```
 ##### Histogram
 
 ![Smaller icon](DataviewerDocumentation/images/Histogram.png?raw=true "HistogramTrace example")
 
 Example:
-
+```java
     HistogramTrace<Double> histogramTrace = new HistogramTrace<>();
     histogramTrace.setxArray(new Double[] { -0.2, 0.0, 0.1, 0.1, 0.3, 0.4, 0.5, 0.5, 0.6, 1.6 });
     histogramTrace.setTraceName("MyHistogramTrace");
     histogramTrace.setTraceColour(TraceColour.BLUE);
-
+```
 Example with configuration object:
-
+```java
     HistogramTrace<Double> histogramTrace = new HistogramTrace<>();
     histogramTrace.setxArray(new Double[] { 0.0, 1.0, 200.0, 3.0, 4000.0, 5.0 });
 
@@ -305,7 +305,7 @@ Example with configuration object:
     histogramConfig.setTraceColour(TraceColour.RED);
 
     histogramTrace.setConfiguration(histogramConfig);
-
+```
 ## Features
 
 ### plotly.js features
