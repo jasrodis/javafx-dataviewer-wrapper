@@ -25,12 +25,13 @@ Extensive usage of the JavaFxDataViewer with examples can be found : [http://git
 
 Maven JitPack installation :
     
-    <dependency>
-		<groupId>com.github.jasrodis</groupId>
-		<artifactId>javafx-dataviewer-wrapper</artifactId>
-		<version>-SNAPSHOT</version>
-	</dependency>
-
+```xml    
+<dependency>
+	<groupId>com.github.jasrodis</groupId>
+	<artifactId>javafx-dataviewer-wrapper</artifactId>
+	<version>-SNAPSHOT</version>
+</dependency>
+```
 
 #Documentation
 
