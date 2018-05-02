@@ -1,7 +1,31 @@
-![Smaller icon](DataviewerDocumentation/images/logo.png?raw=true "JavaFX dataviewer") 
+ 
+<p align="center">
+	<img align="center" src="DataviewerDocumentation/images/logo.png?raw=true"/>
+</p>
 
-[![Build Status](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper.svg?branch=master)](https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper) [![](https://jitpack.io/v/jasrodis/javafx-dataviewer-wrapper.svg)](https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<h2 align="center">Exposing charts from Java to JavaFX and to the Web!</h2>
+
+<p align="center">
+  <em>
+  JavaFX
+  · Charts
+  · Websockets
+  · Jetty
+  · Web
+</p>
+
+<p align="center">
+  <a href="https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper">
+    <img alt="travis" src="https://travis-ci.org/jasrodis/dataviewer.svg?branch=master?style=flat-square">
+  </a>
+  <a href="https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper">
+    <img alt="jitpack" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="licence" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
+  </a>
+</p>
 
 
 
@@ -13,7 +37,7 @@ It is a JavaFX wrapper of the Dataviewer project : https://github.com/jasrodis/d
 It is based on [Plotly.js](https://plot.ly/javascript/), [JavaFx](http://docs.oracle.com/javase/8/javase-clienttechnologies.htm), [Jetty](http://www.eclipse.org/jetty/) and Websockets.
 
 
-## JavaFX Dataviewer Examples
+## Examples
 
 Extensive usage of the JavaFxDataViewer with examples can be found : [http://github.com/jasrodis/javafx-dataviewer-example](http://github.com/jasrodis/javafx-dataviewer-example)
 
