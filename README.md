@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper">
-    <img alt="travis" src="https://travis-ci.org/jasrodis/dataviewer.svg?branch=master?style=flat-square">
+    <img alt="travis" src="https://travis-ci.org/jasrodis/javafx-dataviewer-wrapper.svg?branch=master?style=flat-square">
   </a>
   <a href="https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper">
     <img alt="jitpack" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
