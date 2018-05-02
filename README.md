@@ -20,7 +20,7 @@
     <img alt="travis" src="https://img.shields.io/travis/jasrodis/javafx-dataviewer-wrapper.svg?style=flat-square">
   </a>
   <a href="https://jitpack.io/#jasrodis/javafx-dataviewer-wrapper">
-    <img alt="jitpack" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
+    <img alt="jitpack" src="https://jitpack.io/v/jasrodis/javafx-dataviewer-wrapper.svg?style=flat-square">
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img alt="licence" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
