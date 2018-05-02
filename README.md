@@ -1,6 +1,6 @@
  
 <p align="center">
-	<img align="center" src="DataviewerDocumentation/images/logo.png?raw=true"/>
+	<img align="center" src="DataviewerDocumentation/images/javafx-dataviewer.png?raw=true"/>
 </p>
 
 
