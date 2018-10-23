@@ -68,25 +68,6 @@
 			<version>1.7.6</version>
 		</dependency>
 
-		<!-- Jetty -->
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>9.2.5.v20141112</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlet</artifactId>
-			<version>9.2.5.v20141112</version>
-		</dependency>
-
-		<!-- Jetty WebSockets -->
-		<dependency>
-			<groupId>org.eclipse.jetty.websocket</groupId>
-			<artifactId>websocket-server</artifactId>
-			<version>9.2.5.v20141112</version>
-		</dependency>
 
 		<!-- Apache commons -->
 		<dependency>
