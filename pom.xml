@@ -1,28 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>org.charts</groupId>
 	<artifactId>javafx-dataviewer-wrapper</artifactId>
 	<version>1.0.0</version>
 	<name>javafx-dataviewer-wrapper</name>
-	
+
 	<description>
     	A JavaFX based data visualization library.    
     </description>
-    
-    	<repositories>
+
+	<repositories>
 		<repository>
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-    
+
 
 	<inceptionYear>2018</inceptionYear>
 
 	<properties>
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<slf4j.version>1.7.12</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 	</properties>
@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
-			<version>9.2.5.v20141112</version>
+			<version>[9.3.24.v20180605,)</version>
 		</dependency>
 
 		<dependency>
@@ -110,14 +110,9 @@
 		</dependency>
 
 		<!-- dataviewer -->
-		<!-- 
+		<!-- <dependency> <groupId>org.charts</groupId> <artifactId>dataviewer</artifactId> 
+			<version>1.0.0</version> </dependency> -->
 		<dependency>
-			<groupId>org.charts</groupId>
-			<artifactId>dataviewer</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-	 	-->		
-	 	<dependency>
 			<groupId>com.github.jasrodis</groupId>
 			<artifactId>dataviewer</artifactId>
 			<version>-SNAPSHOT</version>
