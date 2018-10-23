@@ -91,8 +91,13 @@
 		</dependency>
 
 		<!-- dataviewer -->
-		<!-- <dependency> <groupId>org.charts</groupId> <artifactId>dataviewer</artifactId> 
-			<version>1.0.0</version> </dependency> -->
+		<!-- 
+		<dependency> 
+			<groupId>org.charts</groupId>
+			<artifactId>dataviewer</artifactId> 
+			<version>1.0.0</version> 
+		</dependency> 
+		-->
 		<dependency>
 			<groupId>com.github.jasrodis</groupId>
 			<artifactId>dataviewer</artifactId>
